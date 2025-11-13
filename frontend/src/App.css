@@ -1,0 +1,362 @@
+/* === Estilos globales === */
+body {
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+  background-color: #070604;
+  color: #2c3e50;
+}
+
+/* === Navbar === */
+.navbar {
+  background:linear-gradient(90deg, #d6bbd2, #b9219b);
+  color: rgb(88, 209, 143);
+  padding: 0.8rem 2rem;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  z-index: 50;
+}
+
+.navbar-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  color: rgb(66, 148, 93);
+}
+
+.logo img {
+  width: 40px;
+  height: 40px;
+}
+
+.logo h1 {
+  font-size: 1.6rem;
+  font-weight: 600;
+}
+
+.nav-links a,
+.nav-links button {
+  color: white;
+  text-decoration: none;
+  margin-left: 20px;
+  font-weight: 500;
+  transition: color 0.3s;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.nav-links a:hover,
+.nav-links button:hover {
+  color: #ffe8c2;
+}
+
+.btn-login,
+.btn-logout {
+  background-color: #ffe8c2;
+  color: #00695c;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-weight: 600;
+  border: none;
+  transition: 0.3s;
+}
+
+.btn-login:hover,
+.btn-logout:hover {
+  background-color: #fff2d9;
+}
+.body-home {
+     background:linear-gradient(90deg, #fabaf0, #f3efefea);
+}
+/* === Home === */
+.home-container {
+  padding-top: 100px;
+  max-width: 1200px;
+  margin: auto;
+  
+  
+}
+
+.titulo-principal {
+  text-align: center;
+  color: #790065;
+  font-size: 2.5rem;
+  margin-bottom: 40px;
+  font-weight: 700;
+}
+
+/* === Categorías centradas arriba === */
+.categorias-barra {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  background: linear-gradient(90deg, #e493d2, #e0add5);
+  padding: 15px;
+  border-radius: 12px;
+  max-width: 700px;
+  margin: 0 auto 30px auto;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* === Select de categoría === */
+.select-categoria {
+  width: 280px;
+  padding: 10px 12px;
+  border: 2px solid #e2caad; /* borde naranja suave */
+  border-radius: 8px;
+  background-color: #e4c7a3; /* color naranja tipo Home */
+  color: #381906; /* texto marrón oscuro para contraste */
+  font-size: 1rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.select-categoria option {
+  background-color: #e0ceb7; /* mismo color que el select */
+  color: #4a3425;
+  font-weight: 500;
+}
+
+/* Efecto al pasar o enfocar */
+.select-categoria:hover,
+.select-categoria:focus {
+  border-color: #f59e0b; /* naranja un poco más fuerte */
+  box-shadow: 0 0 6px rgba(245, 158, 11, 0.6);
+  outline: none;
+}
+
+/* === Botón “Ver todos los productos” === */
+.boton-volver {
+  background-color: #ffe8c2;
+  color: #00695c;
+  padding: 10px 18px;
+  border: none;
+  border-radius: 10px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s;
+}
+
+.boton-volver:hover {
+  background-color: #fff2d9;
+  transform: scale(1.05);
+}
+
+/* === LOGIN === */
+.login-fondo {
+  background: linear-gradient(90deg, #fabaf0, #f3efefea);
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Tarjeta principal */
+.login-card {
+  background: linear-gradient(135deg, #ffffff, #f6e6f3);
+  border: 2px solid #d6bbd2;
+  box-shadow: 0 8px 20px rgba(185, 33, 155, 0.2);
+  border-radius: 16px;
+  padding: 40px 35px;
+  width: 360px;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.login-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(185, 33, 155, 0.25);
+}
+
+/* Título */
+.login-titulo {
+  color: #790065;
+  font-size: 1.8rem;
+  margin-bottom: 25px;
+  font-weight: 700;
+}
+
+/* Campos */
+.login-input {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 15px;
+  border-radius: 10px;
+  border: 2px solid #e4c7a3;
+  background-color: #fff7ef;
+  font-size: 1rem;
+  color: #381906;
+  transition: all 0.3s ease;
+}
+
+.login-input:focus {
+  outline: none;
+  border-color: #b9219b;
+  box-shadow: 0 0 6px rgba(185, 33, 155, 0.3);
+}
+
+/* Botón */
+.login-boton {
+  width: 100%;
+  background: linear-gradient(90deg, #d6bbd2, #b9219b);
+  color: white;
+  font-weight: 600;
+  padding: 12px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.login-boton:hover {
+  background: linear-gradient(90deg, #e0add5, #d06abf);
+  transform: scale(1.03);
+}
+
+/* Mensaje */
+.login-mensaje {
+  margin-top: 15px;
+  color: #790065;
+  font-weight: 500;
+  font-size: 0.95rem;
+}
+
+
+/* === Sección de productos === */
+.productos-full {
+  background:linear-gradient(90deg, #d6bbd2, #b9219b);
+  color: white;
+  padding: 25px;
+  border-radius: 15px;
+  max-width: 1200px;
+  margin: 0 auto 50px auto;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.subtitulo {
+  text-align: center;
+  margin-bottom: 25px;
+  font-size: 1.4rem;
+  font-weight: 600;
+}
+
+/* === Grid de productos === */
+.grid-productos {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+/* === Tarjeta de producto === */
+.tarjeta-producto {
+  background: linear-gradient(90deg, #ece0ea, #e0c1da);
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.tarjeta-producto:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.imagen-producto {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+
+.detalle-producto {
+  padding: 15px;
+  text-align: center;
+}
+
+.detalle-producto h3 {
+  font-size: 1.2rem;
+  color: #00695c;
+  margin-bottom: 5px;
+}
+
+.precio {
+  color: #e65100;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+/* === Botones dentro de las tarjetas === */
+.acciones-producto {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.btn-ver,
+.btn-agregar {
+  border: none;
+  padding: 8px 12px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background 0.3s;
+}
+
+.btn-ver {
+  background-color: #009688;
+  color: white;
+}
+
+.btn-ver:hover {
+  background-color: #00796b;
+}
+
+.btn-agregar {
+  background-color: #ffe8c2;
+  color: #00695c;
+}
+
+.btn-agregar:hover {
+  background-color: #fff2d9;
+}
+
+/* === Texto cuando no hay productos === */
+.sin-productos {
+  text-align: center;
+  color: #666;
+  font-style: italic;
+  margin-top: 20px;
+}
+
+/* === Responsive === */
+@media (max-width: 768px) {
+  .categorias-barra {
+    flex-direction: column;
+    max-width: 90%;
+    padding: 20px;
+  }
+
+  .select-categoria {
+    width: 100%;
+  }
+
+  .boton-volver {
+    width: 100%;
+  }
+
+  .productos-full {
+    padding: 20px 10px;
+  }
+}
