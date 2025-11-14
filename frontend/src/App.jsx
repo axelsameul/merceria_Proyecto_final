@@ -6,16 +6,16 @@ import Login from "./pages/Login";
 import AdminPanel from "./pages/AdminPanel";
 import AdminMovimientos from "./pages/AdminMovimientos";
 import { CarritoProvider } from "./context/CarritoContext";
+import { useAuth } from "./context/AuthContext";
 import Navbar from "./components/Navbar";
-import "./App.css"; // 👈 Import correcto del CSS
-
+import "./App.css";
 
 function App() {
-  const usuario = JSON.parse(localStorage.getItem("usuario"));
+  const { usuario } = useAuth(); // 👈 ahora toma el usuario del contexto
 
   return (
     <CarritoProvider>
-      <div className="body-home  min-h-screen flex flex-col  from-beige-100 via-beige-50 to-turquoise-50 text-gray-800 font-sans">
+      <div className="body-home min-h-screen flex flex-col from-beige-100 via-beige-50 to-turquoise-50 text-gray-800 font-sans">
         <header className="sticky top-0 z-50">
           <Navbar />
         </header>
@@ -26,9 +26,10 @@ function App() {
             <Route path="/producto/:id" element={<DetalleProducto />} />
             <Route path="/carrito" element={<Carrito />} />
             <Route path="/login" element={<Login />} />
+
+            {/* 🔐 Rutas solo visibles si es admin */}
             {usuario?.rol === "admin" && (
               <>
-                 
                 <Route path="/admin" element={<AdminPanel />} />
                 <Route path="/movimiento" element={<AdminMovimientos />} />
               </>
