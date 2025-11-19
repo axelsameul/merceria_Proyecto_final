@@ -55,6 +55,15 @@ export default function Login() {
           Entrar
         </button>
 
+        <p 
+         className="login-olvido" 
+         onClick={() => navigate("/recuperar-password")}
+         style={{ cursor: "pointer", marginTop: "10px", color: "#007bff" }}
+        >
+        ¿Olvidaste tu contraseña?
+        </p>
+
+
         {mensaje && <p className="login-mensaje">{mensaje}</p>}
       </form>
     </div>

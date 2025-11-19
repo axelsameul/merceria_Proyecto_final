@@ -5,6 +5,8 @@ import Carrito from "./pages/Carrito";
 import Login from "./pages/Login";
 import AdminPanel from "./pages/AdminPanel";
 import AdminMovimientos from "./pages/AdminMovimientos";
+import RecuperarPassword from './pages/RecuperarPassword'
+import ResetPassword from './pages/ResetPassword'
 import { CarritoProvider } from "./context/CarritoContext";
 import { useAuth } from "./context/AuthContext";
 import Navbar from "./components/Navbar";
@@ -26,6 +28,9 @@ function App() {
             <Route path="/producto/:id" element={<DetalleProducto />} />
             <Route path="/carrito" element={<Carrito />} />
             <Route path="/login" element={<Login />} />
+
+             <Route path="/recuperar-password" element={<RecuperarPassword />} />
+             <Route path="/reset-password" element={<ResetPassword />} />
 
             {/* 🔐 Rutas solo visibles si es admin */}
             {usuario?.rol === "admin" && (

@@ -2,6 +2,13 @@ const express = require('express');
 const cors = require('cors');
 const path = require('path');
 const multer = require('multer');
+const dotenv = require('dotenv');
+
+
+
+dotenv.config();
+
+
 
 const app = express();
 const PORT = 3001;
@@ -30,11 +37,12 @@ const productosRoutes = require('./routes/productosRoutes');
 const pedidosRoutes = require('./routes/pedidosRoutes');
 const usuariosRoutes = require('./routes/usuariosRoutes');
 const movimientosRoutes = require('./routes/movimientosRoutes');
+const authRoutes = require('./routes/auth.routes');
 app.use('/api/movimientos', movimientosRoutes);
 app.use('/api/productos', productosRoutes);
 app.use('/api/pedidos', pedidosRoutes);
 app.use('/api/usuarios', usuariosRoutes);
-
+app.use('/api/auth', authRoutes);
 // Error global (opcional)
 app.use((err, req, res, next) => {
   console.error(err.stack);
