@@ -12,8 +12,13 @@ export default function Productos({ idCategoria, destacados = false }) {
     const fetchProductos = async () => {
       try {
         let url = "http://localhost:3001/api/productos";
-        if (idCategoria) url += `/categoria/${idCategoria}`;
-        if (destacados) url += "?destacados=true";
+
+if (idCategoria) {
+  url = `http://localhost:3001/api/productos/categoria/${idCategoria}`;
+} else if (destacados) {
+  url = "http://localhost:3001/api/productos?destacados=true";
+}
+
 
         const res = await axios.get(url);
         setProductos(res.data);

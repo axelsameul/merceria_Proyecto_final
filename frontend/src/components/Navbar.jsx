@@ -35,7 +35,7 @@ export default function Navbar() {
               {usuario.rol === "admin" && (
                 <>
                 
-                  <Link to="/admin">Panel Admin</Link>
+                  <Link to="/adminPanel">Panel Admin</Link>
                   <Link to="/movimiento">Movimientos</Link>
                 </>
               )}

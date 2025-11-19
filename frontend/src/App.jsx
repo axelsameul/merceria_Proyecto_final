@@ -11,37 +11,37 @@ import Navbar from "./components/Navbar";
 import "./App.css";
 
 function App() {
-  const { usuario } = useAuth(); // 👈 ahora toma el usuario del contexto
+  const { usuario } = useAuth();
 
   return (
     <CarritoProvider>
-      <div className="body-home min-h-screen flex flex-col from-beige-100 via-beige-50 to-turquoise-50 text-gray-800 font-sans">
-        <header className="sticky top-0 z-50">
+      <div className="layout">
+        <header>
           <Navbar />
         </header>
 
-        <main className="home-conta max-w-6xl mx-auto w-full px-6 py-10">
+        <main className="main-content">
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/producto/:id" element={<DetalleProducto />} />
             <Route path="/carrito" element={<Carrito />} />
             <Route path="/login" element={<Login />} />
 
-            {/* 🔐 Rutas solo visibles si es admin */}
             {usuario?.rol === "admin" && (
               <>
-                <Route path="/admin" element={<AdminPanel />} />
+                <Route path="/adminPanel" element={<AdminPanel />} />
                 <Route path="/movimiento" element={<AdminMovimientos />} />
               </>
             )}
           </Routes>
         </main>
 
-        <footer className="bg-teal-600 text-white py-6 text-center shadow-inner">
-          <p className="text-sm tracking-wide">
-            © 2025 <span className="font-semibold">Mercería Dulce Hilo</span> — Todos los derechos reservados.
+        <footer className="footer">
+          <p className="footer-text">
+            © 2025 <span className="footer-brand">Mercería Dulce Hilo</span> — Todos los derechos reservados.
           </p>
-          <div className="mt-2 flex justify-center gap-3 text-beige-100">
+
+          <div className="footer-icons">
             <i className="fa-brands fa-instagram"></i>
             <i className="fa-brands fa-facebook"></i>
             <i className="fa-brands fa-whatsapp"></i>

@@ -15,9 +15,13 @@ const getCategorias = async (req, res) => {
 const getProductosPorCategoria = async (req, res) => {
   try {
     const { id_categoria } = req.params;
-    const [result] = await pool.query('SELECT * FROM productos WHERE id_categoria = ?', [id_categoria]);
-    if (result.length === 0) return res.status(404).json({ mensaje: 'No hay productos en esta categoría' });
-    res.json(result);
+    const [result] = await pool.query(
+      'SELECT * FROM productos WHERE id_categoria = ?',
+      [id_categoria]
+    );
+
+    // ⚠️ Importante: devolver [] en vez de 404
+    return res.json(result);
   } catch (err) {
     console.error('Error al obtener productos:', err);
     res.status(500).json({ error: 'Error al obtener productos', detalle: err.message });

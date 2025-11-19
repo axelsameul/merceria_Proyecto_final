@@ -22,7 +22,7 @@ export default function Login() {
       login(res.data); // ✅ actualiza el contexto
       setMensaje("Inicio de sesión exitoso ✅");
 
-      navigate("/homeAdmin");
+      navigate("/adminPanel");
     } catch (err) {
       setMensaje(err.response?.data?.mensaje || "Error al iniciar sesión");
     }
