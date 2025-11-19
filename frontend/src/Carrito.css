@@ -1,0 +1,102 @@
+/* Contenedor general */
+.carrito-container {
+  min-height: 100vh;
+  background: #f3f3f3;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 30px;
+}
+
+/* Tarjeta */
+.carrito-card {
+  background: #fff;
+  width: 100%;
+  max-width: 460px;
+  padding: 25px;
+  border-radius: 18px;
+  box-shadow: 0px 4px 18px rgba(0,0,0,0.1);
+}
+
+/* Título */
+.carrito-title {
+  text-align: center;
+  font-size: 26px;
+  margin-bottom: 25px;
+  font-weight: bold;
+  color: #c2185b;
+}
+
+/* Carrito vacío */
+.carrito-vacio {
+  text-align: center;
+  color: #777;
+}
+
+/* Lista de productos */
+.carrito-lista {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 15px;
+  border-bottom: 1px solid #ddd;
+}
+
+.carrito-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 0;
+  color: #444;
+  font-size: 15px;
+}
+
+.carrito-cantidad {
+  color: #888;
+  font-size: 13px;
+}
+
+.carrito-precio {
+  font-weight: bold;
+  color: #333;
+}
+
+/* Total */
+.carrito-total {
+  text-align: right;
+  font-size: 18px;
+  margin: 15px 0;
+  font-weight: bold;
+}
+
+/* Formulario */
+.carrito-form input {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #bbb;
+  border-radius: 10px;
+  font-size: 14px;
+  margin-bottom: 12px;
+  transition: 0.2s;
+}
+
+.carrito-form input:focus {
+  border-color: #c2185b;
+  outline: none;
+}
+
+/* Botón */
+.carrito-btn {
+  width: 100%;
+  background: #c2185b;
+  color: white;
+  padding: 14px;
+  border: none;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.carrito-btn:hover {
+  background: #a3154f;
+}
