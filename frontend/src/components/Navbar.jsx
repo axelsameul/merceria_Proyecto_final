@@ -1,15 +1,20 @@
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
+import { useCarrito } from "../context/CarritoContext";
 import "../App.css";
 
 export default function Navbar() {
   const { usuario, logout } = useAuth();
+  const { carrito } = useCarrito();
   const navigate = useNavigate();
 
   const handleLogout = () => {
     logout();
     navigate("/");
   };
+
+  // Cantidad total de productos en el carrito
+  const totalItems = carrito.reduce((acc, p) => acc + p.cantidad, 0);
 
   return (
     <nav className="navbar">
@@ -24,7 +29,10 @@ export default function Navbar() {
 
         <div className="nav-links">
           <Link to="/">Inicio</Link>
-          <Link to="/carrito">Carrito</Link>
+
+          <Link to="/carrito">
+            Carrito {totalItems > 0 && `(${totalItems})`}
+          </Link>
 
           {!usuario ? (
             <Link to="/login" className="btn-login">
@@ -34,7 +42,6 @@ export default function Navbar() {
             <>
               {usuario.rol === "admin" && (
                 <>
-                
                   <Link to="/adminPanel">Panel Admin</Link>
                   <Link to="/movimiento">Movimientos</Link>
                 </>

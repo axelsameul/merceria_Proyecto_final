@@ -47,16 +47,16 @@ const getProductosConCategoria = async (req, res) => {
 
 // 🆕 Agregar producto
 const agregarProducto = async (req, res) => {
-  const { nombre, precio, id_categoria } = req.body;
+  const { nombre, precio, id_categoria,descripcion } = req.body;
   const imagen = req.file ? req.file.filename : null;
 
-  if (!nombre || !precio || !id_categoria)
+  if (!nombre || !precio || !id_categoria || !descripcion)
     return res.status(400).json({ mensaje: "Faltan datos obligatorios" });
 
   try {
     await pool.query(
-      "INSERT INTO productos (nombre, precio, id_categoria, imagen) VALUES (?, ?, ?, ?)",
-      [nombre, precio, id_categoria, imagen]
+      "INSERT INTO productos (nombre, precio, id_categoria, imagen,descripcion) VALUES (?, ?, ?, ?)",
+      [nombre, precio, id_categoria, imagen,descripcion]
     );
     res.json({ mensaje: "Producto agregado correctamente" });
   } catch (err) {
@@ -68,13 +68,13 @@ const agregarProducto = async (req, res) => {
 // ✏️ Editar producto
 const editarProducto = async (req, res) => {
   const { id } = req.params;
-  const { nombre, precio, id_categoria } = req.body;
+  const { nombre, precio, id_categoria,descripcion } = req.body;
   const imagen = req.file ? req.file.filename : null;
 
   try {
     await pool.query(
-      "UPDATE productos SET nombre = ?, precio = ?, id_categoria = COALESCE(?, id_categoria), imagen = COALESCE(?, imagen) WHERE id = ?",
-      [nombre, precio, id_categoria, imagen, id]
+      "UPDATE productos SET nombre = ?, precio = ?,descripcion, id_categoria = COALESCE(?, id_categoria), imagen = COALESCE(?, imagen) WHERE id = ?",
+      [nombre, precio, id_categoria, imagen, id,descripcion]
     );
     res.json({ mensaje: "Producto actualizado correctamente" });
   } catch (err) {

@@ -72,7 +72,7 @@
   background: #f39c12;
   color: white;
   padding: 14px;
-  font-size: 1.1rem;
+  font-size: 1.5rem;
 }
 
 .admin-tabla td {
@@ -226,7 +226,7 @@
   overflow-x: auto;
   background: rgba(255, 255, 255, 0.95);
   border-radius: 12px;
-  padding: 10px;
+  /* padding: 10px; */ /* quitar */
   box-shadow: 0 6px 18px rgba(0,0,0,0.2);
 }
 
@@ -241,6 +241,7 @@
   padding: 12px;
   text-align: left;
 }
+
 
 .tabla-modern td {
   padding: 10px 12px;
@@ -258,5 +259,316 @@
 
 .gasto {
   color: #dc2626;
+  font-weight: bold;
+}
+
+
+/* Contenedor general */
+.detalle-container {
+  display: flex;
+  justify-content: center;
+  padding: 40px 20px;
+}
+
+/* Tarjeta */
+.detalle-card {
+  background: #ffffffcc;
+  backdrop-filter: blur(6px);
+  border-radius: 16px;
+  padding: 30px;
+  max-width: 600px;
+  width: 100%;
+  text-align: center;
+  box-shadow: 0px 4px 18px rgba(0, 0, 0, 0.15);
+  animation: fadeIn 0.4s ease;
+}
+
+/* Título */
+.detalle-titulo {
+  font-size: 28px;
+  font-weight: 700;
+  color: #7a1b6d;
+  margin-bottom: 15px;
+}
+
+/* Precio */
+.detalle-precio {
+  font-size: 22px;
+  font-weight: bold;
+  color: #0d9488;
+  margin-bottom: 25px;
+}
+
+/* Imagen */
+.detalle-imagen {
+  width: 100%;
+  max-height: 380px;
+  object-fit: contain;
+  border-radius: 12px;
+  margin-bottom: 20px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Descripción */
+.detalle-desc {
+  font-size: 16px;
+  color: #444;
+  margin-top: 15px;
+  line-height: 1.5;
+}
+
+/* Texto de carga */
+.cargando {
+  text-align: center;
+  padding: 40px;
+  font-size: 20px;
+}
+
+/* Animación suave */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+/* === INPUT FILE CUSTOM === */
+.file-input-container {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  flex: 1 1 200px;
+}
+
+.custom-file-label {
+  background: #ff7f50;
+  color: white;
+  padding: 12px 18px;
+  border-radius: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: 0.3s ease;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.15);
+  user-select: none;
+}
+
+.custom-file-label:hover {
+  background: #ff6333;
+}
+
+/* Ocultar input real */
+.custom-file-input {
+  display: none;
+}
+
+.file-name {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #444;
+  padding: 6px 10px;
+  background: #fff;
+  border-radius: 10px;
+  border: 1px solid #ddd;
+  max-width: 250px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+/* === CONTENEDOR GENERAL === */
+.admin-wrapper {
+  max-width: 1200px;
+  margin: auto;
+  padding: 30px;
+  min-height: 100vh;
+  font-family: "Poppins", sans-serif;
+  background: linear-gradient(135deg, #ffbe76, #ff7979);
+}
+
+/* === TÍTULO === */
+.titulo-admin {
+  text-align: center;
+  font-size: 2.3rem;
+  font-weight: 800;
+  color: #fff;
+  margin-bottom: 30px;
+  margin-top: 60px;
+  text-shadow: 2px 2px 8px rgba(0,0,0,0.3);
+}
+
+/* === BUSQUEDA Y FILTROS === */
+/* === BUSQUEDA Y FILTROS === */
+.busqueda-filtros {
+  display: flex;
+  justify-content: center;   /* Centra el buscador */
+  margin-bottom: 20px;
+}
+
+/* Input de búsqueda más chico */
+.busqueda-filtros .input-sm {
+  width: 400px;              /* Más chico */
+  padding: 6px 10px;
+  font-size: 0.85rem;
+  text-align: center;        /* Centra el texto */
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+
+
+
+
+/* === FORMULARIO === */
+.form-admin {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  background: #ffffffd2;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  margin-bottom: 25px;
+}
+
+/* Inputs más chicos */
+.form-admin input,
+.form-admin select {
+  flex: 1 1 180px;
+  font-size: 0.9rem;
+  padding: 8px 10px;
+}
+
+/* === BOTÓN SUBIR IMAGEN === */
+.btn-file-sm {
+  background: #ff7f50;
+  color: white;
+  padding: 8px 15px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 700;
+  transition: 0.3s;
+}
+
+.btn-file-sm:hover {
+  background: #ff6333;
+}
+
+.btn-file-sm input {
+  display: none;
+}
+
+.file-name-sm {
+  font-size: 0.8rem;
+  margin-left: 5px;
+}
+
+/* IMAGEN MINI EDITAR */
+.preview-mini img {
+  width: 60px;
+  height: 60px;
+  border-radius: 8px;
+  object-fit: cover;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+
+/* === BOTÓN AGREGAR === */
+.btn-primary-sm {
+  background: #16a34a;
+  color: white;
+  padding: 10px 18px;
+  border-radius: 10px;
+  font-size: 0.9rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.btn-primary-sm:hover {
+  background: #12812c;
+}
+
+/* === TABLA === */
+.tabla-admin {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+.tabla-admin th {
+  background: #f39c12;
+  color: white;
+  padding: 12px;
+  font-size: 1rem;
+}
+
+.tabla-admin td {
+  padding: 10px;
+  border-bottom: 1px solid #eee;
+}
+
+.tabla-admin tr:hover {
+  background-color: #fff7e6;
+}
+
+.img-sm {
+  width: 70px;
+  height: 60px;
+  border-radius: 8px;
+  object-fit: cover;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+
+/* === BOTONES EDIT/DELETE === */
+.btn-edit-sm {
+  background: #3498db;
+  color: white;
+  padding: 6px 12px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  margin-right: 5px;
+  font-size: 0.85rem;
+}
+
+.btn-edit-sm:hover {
+  background: #1d78bb;
+}
+
+.btn-del-sm {
+  background: #e74c3c;
+  color: white;
+  padding: 6px 12px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  font-size: 0.85rem;
+}
+
+.btn-del-sm:hover {
+  background: #c0392b;
+}
+
+/* === PAGINACIÓN === */
+.paginacion-sm {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.paginacion-sm button {
+  padding: 6px 12px;
+  border-radius: 8px;
+  border: none;
+  background: #ffbe76;
+  cursor: pointer;
+}
+
+.paginacion-sm span {
   font-weight: bold;
 }

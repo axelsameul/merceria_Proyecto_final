@@ -9,25 +9,35 @@ export default function Productos({ idCategoria, destacados = false }) {
   const { agregarAlCarrito } = useCarrito();
 
   useEffect(() => {
-    const fetchProductos = async () => {
-      try {
-        let url = "http://localhost:3001/api/productos";
+  const fetchProductos = async () => {
+    try {
+      let url = "http://localhost:3001/api/productos";
 
-if (idCategoria) {
-  url = `http://localhost:3001/api/productos/categoria/${idCategoria}`;
-} else if (destacados) {
-  url = "http://localhost:3001/api/productos?destacados=true";
-}
-
-
-        const res = await axios.get(url);
-        setProductos(res.data);
-      } catch (error) {
-        console.error("Error al obtener productos:", error);
+      if (idCategoria) {
+        // Si hay categoría, traemos todos los productos de esa categoría
+        url = `http://localhost:3001/api/productos/categoria/${idCategoria}`;
+      } else {
+        // Si no hay categoría, traemos solo los destacados
+        url = "http://localhost:3001/api/productos?destacados=true";
       }
-    };
-    fetchProductos();
-  }, [idCategoria, destacados]);
+
+      const res = await axios.get(url);
+      let data = res.data;
+
+      // Limitar a 10 productos si NO hay categoría seleccionada
+      if (!idCategoria) {
+        data = data.slice(0, 12); // toma los primeros 10
+      }
+
+      setProductos(data);
+    } catch (error) {
+      console.error("Error al obtener productos:", error);
+    }
+  };
+
+  fetchProductos();
+}, [idCategoria, destacados]);
+
 
   return (
     <div className="productos-full">

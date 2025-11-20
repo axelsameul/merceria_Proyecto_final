@@ -59,6 +59,18 @@ const AdminMovimientos = () => {
     fetchResumen();
   }, []);
 
+const handleDelete = async (id) => {
+  if (!window.confirm("¿Estás seguro de eliminar este movimiento?")) return;
+  try {
+    await axios.delete(`http://localhost:3001/api/movimientos/${id}`);
+    fetchMovimientos(); // Actualizamos la tabla
+    fetchResumen(); // Actualizamos el resumen
+  } catch (err) {
+    console.error("Error al eliminar movimiento:", err);
+  }
+};
+
+
   // 🟠 Agregar nuevo movimiento
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -78,7 +90,7 @@ const AdminMovimientos = () => {
 
   return (
     <div className="admin-movimientos">
-      <h2 className="titulo-movimientos">📊 Panel Contable General</h2>
+      <h2 className="titulo-movimientos">📊 Movimientos</h2>
 
       <div className="resumen-tarjetas">
         <div className="tarjeta resumen-ingreso">
@@ -139,6 +151,7 @@ const AdminMovimientos = () => {
               <th>Tipo</th>
               <th>Descripción</th>
               <th>Monto</th>
+              <th>Eliminar</th>
             </tr>
           </thead>
           <tbody>
@@ -150,6 +163,14 @@ const AdminMovimientos = () => {
                 </td>
                 <td>{m.descripcion}</td>
                 <td>${m.monto}</td>
+                 <td>
+        <button
+          className="btn-eliminar"
+          onClick={() => handleDelete(m.id_movimiento)}
+        >
+          Eliminar
+        </button>
+      </td>
               </tr>
             ))}
           </tbody>
